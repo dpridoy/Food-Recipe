@@ -96,6 +96,7 @@
                 android:id="@+id/recyclerCategory"
                 android:scrollbars="none"
                 android:layout_marginTop="10dp"
+                android:clipToPadding="false"
                 android:layout_below="@+id/titleCategory"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
