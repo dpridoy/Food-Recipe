@@ -1,4 +1,4 @@
-package com.dpridoy.foodrecipe.view;
+package com.dpridoy.foodrecipe.view.home;
 
 import androidx.annotation.NonNull;
 

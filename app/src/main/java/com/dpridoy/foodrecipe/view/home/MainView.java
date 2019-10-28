@@ -1,4 +1,4 @@
-package com.dpridoy.foodrecipe.view;
+package com.dpridoy.foodrecipe.view.home;
 
 import com.dpridoy.foodrecipe.model.Categories;
 import com.dpridoy.foodrecipe.model.Meals;

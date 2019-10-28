@@ -1,4 +1,4 @@
-package com.dpridoy.foodrecipe.view;
+package com.dpridoy.foodrecipe.view.home;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,8 +6,8 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -17,7 +17,9 @@ import com.dpridoy.foodrecipe.adapter.RecyclerViewHomeAdapter;
 import com.dpridoy.foodrecipe.adapter.ViewPagerHeaderAdapter;
 import com.dpridoy.foodrecipe.model.Categories;
 import com.dpridoy.foodrecipe.model.Meals;
+import com.dpridoy.foodrecipe.view.category.CategoryActivity;
 
+import java.io.Serializable;
 import java.util.List;
 
 import butterknife.BindView;
@@ -27,6 +29,9 @@ public class MainActivity extends AppCompatActivity implements MainView{
 
     @BindView(R.id.viewPagerHeader) ViewPager viewPagerMeal;
     @BindView(R.id.recyclerCategory) RecyclerView recyclerViewCategory;
+
+    public static final String EXTRA_CATEGORY = "category";
+    public static final String EXTRA_POSITION = "position";
 
     MainPresenter presenter;
 
@@ -75,7 +80,12 @@ public class MainActivity extends AppCompatActivity implements MainView{
         homeAdapter.notifyDataSetChanged();
 
         homeAdapter.setOnItemClickListener((view, position) -> {
-            Toast.makeText(this,category.get(position).getStrCategory(),Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this,category.get(position).getStrCategory(),Toast.LENGTH_SHORT).show();
+            Intent intent=new Intent(this, CategoryActivity.class);
+            intent.putExtra(EXTRA_CATEGORY, (Serializable) category);
+            intent.putExtra(EXTRA_POSITION, position);
+            startActivity(intent);
+
         });
     }
 
