@@ -5,6 +5,7 @@ import com.dpridoy.foodrecipe.model.Meals;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Query;
 
 public interface MenuApi {
 
@@ -13,4 +14,7 @@ public interface MenuApi {
 
     @GET("categories.php")
     Call<Categories> getCategories();
+
+    @GET("filter.php")
+    Call<Meals> getMealByCategory(@Query("c") String category);
 }

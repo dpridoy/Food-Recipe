@@ -5,9 +5,10 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toolbar;
+import androidx.appcompat.widget.Toolbar;
 
 import com.dpridoy.foodrecipe.R;
+import com.dpridoy.foodrecipe.adapter.ViewPagerCategoryAdapter;
 import com.dpridoy.foodrecipe.model.Categories;
 import com.dpridoy.foodrecipe.view.home.MainActivity;
 import com.google.android.material.tabs.TabLayout;
@@ -31,6 +32,9 @@ public class CategoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
         ButterKnife.bind(this);
+
+        initActionBar();
+        initIntent();
     }
 
     private void initIntent(){
@@ -39,11 +43,19 @@ public class CategoryActivity extends AppCompatActivity {
 
         int position=intent.getIntExtra(MainActivity.EXTRA_POSITION,0);
 
+        ViewPagerCategoryAdapter adapter=new ViewPagerCategoryAdapter(
+                getSupportFragmentManager(),
+                categories);
+
+        viewPager.setAdapter(adapter);
+        tabLayout.setupWithViewPager(viewPager);
+        viewPager.setCurrentItem(position,true);
+        adapter.notifyDataSetChanged();
 
     }
 
     private void initActionBar(){
-        setSupportActionBar(null);
+        setSupportActionBar(toolbar);
         if(getSupportActionBar()!=null){
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
