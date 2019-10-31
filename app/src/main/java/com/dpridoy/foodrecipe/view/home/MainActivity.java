@@ -9,6 +9,7 @@ import androidx.viewpager.widget.ViewPager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dpridoy.foodrecipe.R;
@@ -18,6 +19,7 @@ import com.dpridoy.foodrecipe.adapter.ViewPagerHeaderAdapter;
 import com.dpridoy.foodrecipe.model.Categories;
 import com.dpridoy.foodrecipe.model.Meals;
 import com.dpridoy.foodrecipe.view.category.CategoryActivity;
+import com.dpridoy.foodrecipe.view.detail.DetailActivity;
 
 import java.io.Serializable;
 import java.util.List;
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements MainView{
 
     public static final String EXTRA_CATEGORY = "category";
     public static final String EXTRA_POSITION = "position";
+    public static final String EXTRA_DETAIL = "detail";
 
     MainPresenter presenter;
 
@@ -62,11 +65,15 @@ public class MainActivity extends AppCompatActivity implements MainView{
     public void setMeal(List<Meals.Meal> meal) {
         ViewPagerHeaderAdapter headerAdapter = new ViewPagerHeaderAdapter(meal,this);
         viewPagerMeal.setAdapter(headerAdapter);
-        viewPagerMeal.setPadding(20,0,150,0);
+        viewPagerMeal.setPadding(20,0,20,0);
         headerAdapter.notifyDataSetChanged();
 
         headerAdapter.setOnItemClickListener((v, position) -> {
-            Toast.makeText(this,meal.get(position).getStrMeal(),Toast.LENGTH_SHORT).show();
+            TextView mealName = v.findViewById(R.id.mealName);
+            Intent intent = new Intent(getApplicationContext(), DetailActivity.class);
+            intent.putExtra(EXTRA_DETAIL, mealName.getText().toString());
+            startActivity(intent);
+
         });
     }
 

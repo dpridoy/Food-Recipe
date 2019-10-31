@@ -11,11 +11,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.category.CategoryActivity"
-            android:theme="@style/AppTheme"
+        <activity android:name=".view.detail.DetailActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".view.category.CategoryActivity"
+            android:label="Category"
             android:screenOrientation="portrait"
-            android:label="Category"/>
-        <activity android:name=".view.home.MainActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".view.home.MainActivity"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

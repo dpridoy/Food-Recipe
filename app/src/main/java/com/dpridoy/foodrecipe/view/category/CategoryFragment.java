@@ -1,6 +1,7 @@
 package com.dpridoy.foodrecipe.view.category;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,9 +22,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.dpridoy.foodrecipe.R;
 import com.dpridoy.foodrecipe.Utils;
 import com.dpridoy.foodrecipe.adapter.RecyclerViewMealByCategory;
-import com.dpridoy.foodrecipe.adapter.ViewPagerCategoryAdapter;
-import com.dpridoy.foodrecipe.model.Categories;
 import com.dpridoy.foodrecipe.model.Meals;
+import com.dpridoy.foodrecipe.view.detail.DetailActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -31,6 +31,8 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+
+import static com.dpridoy.foodrecipe.view.home.MainActivity.EXTRA_DETAIL;
 
 public class CategoryFragment extends Fragment implements CategoryView{
 
@@ -95,8 +97,10 @@ public class CategoryFragment extends Fragment implements CategoryView{
         adapter.notifyDataSetChanged();
 
         adapter.setOnItemClickListener((view, position) -> {
-            Toast.makeText(getActivity(),"meal :"+
-                    meals.get(position).getStrMeal(),Toast.LENGTH_SHORT).show();
+            TextView mealName = view.findViewById(R.id.mealName);
+            Intent intent = new Intent(getActivity(), DetailActivity.class);
+            intent.putExtra(EXTRA_DETAIL, mealName.getText().toString());
+            startActivity(intent);
 
         });
 
