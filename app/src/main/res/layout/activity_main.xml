@@ -56,8 +56,8 @@
                     android:text="@string/search_your_recipes"
                     android:textColor="@color/colorPrimaryLight"
                     android:gravity="clip_vertical"
-                    android:drawableLeft="@drawable/ic_search"
-                    android:drawableStart="@drawable/ic_search"
+                    android:drawableLeft="@drawable/ic_food"
+                    android:drawableStart="@drawable/ic_food"
                     android:drawablePadding="10dp"/>
 
 

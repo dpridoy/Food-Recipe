@@ -6,7 +6,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".view.category.CategoryFragment">
 
-    <!--TODO 10. fragment_category-->
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -32,7 +31,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
                     <ImageView
-                        android:background="#D9770202"
+                        android:background="@color/colorPrimaryLight"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
                     <ImageView

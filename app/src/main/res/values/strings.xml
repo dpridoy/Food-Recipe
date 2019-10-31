@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Food Recipe</string>
-    <string name="search_your_recipes">Search Your Recipes…</string>
+    <string name="search_your_recipes">Find Your Favorite Recipes…</string>
     <string name="meal_categories">Meal Categories</string>
     <string name="category">Category</string>
     <string name="country">Country</string>
